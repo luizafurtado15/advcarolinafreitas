@@ -1,4 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {
+  ShieldPlus,
+  HardHat,
+  HeartHandshake,
+  Accessibility,
+  CalendarClock,
+  Ear,
+  MessagesSquare,
+  Award,
+  LifeBuoy,
+} from "lucide-react";
 import logoAsset from "@/assets/logo-carol.jpg.asset.json";
 import photoAsset from "@/assets/carolina-freitas.jpg.asset.json";
 
@@ -50,26 +61,31 @@ const benefits = [
     tag: "01 · Auxílio-Doença",
     hook: "Proteção para quem não pode trabalhar.",
     body: "Se uma doença ou acidente te afastou do trabalho por mais de 15 dias, você tem direito a receber. Atuamos para reverter perícias negadas e garantir seu afastamento remunerado pelo INSS.",
+    Icon: ShieldPlus,
   },
   {
     tag: "02 · Auxílio-Acidente",
     hook: "Receba sem parar de trabalhar.",
     body: "Se você sofreu um acidente que deixou sequelas e reduziu sua capacidade, pode ter direito a uma indenização mensal de 50% do salário de benefício até a aposentadoria.",
+    Icon: HardHat,
   },
   {
     tag: "03 · BPC-LOAS",
     hook: "Benefício mesmo sem ter contribuído.",
     body: "Idosos (+65) ou pessoas com deficiência de baixa renda podem receber um salário mínimo sem nunca ter pago INSS. Comprovamos a vulnerabilidade social para garantir esse direito.",
+    Icon: HeartHandshake,
   },
   {
     tag: "04 · Aposentadoria por Incapacidade",
     hook: "Quando não há mais expectativa de voltar a trabalhar.",
     body: "Se você tem uma doença grave ou sequela que te impede de exercer qualquer atividade, sem previsão de melhora, pode ter direito a um benefício mensal definitivo do INSS.",
+    Icon: Accessibility,
   },
   {
     tag: "05 · Aposentadoria por Idade / Tempo",
     hook: "Não perca dinheiro na aposentadoria.",
     body: "Faltam poucos meses ou anos? Realizamos um Planejamento Previdenciário detalhado (análise do CNIS) para organizar sua documentação e garantir o melhor valor possível.",
+    Icon: CalendarClock,
   },
 ];
 
@@ -77,18 +93,22 @@ const reasons = [
   {
     title: "Atendimento humano, do início ao fim",
     body: "Você não vai ser só mais um número. Vou acompanhar seu caso de perto, com atenção real à sua história.",
+    Icon: Ear,
   },
   {
     title: "Clareza sem juridiquês",
     body: "Vou te explicar cada etapa do processo em uma linguagem que você entende, sem termos complicados.",
+    Icon: MessagesSquare,
   },
   {
     title: "Experiência em causas negadas pelo INSS",
     body: "Já ajudei muitas pessoas que ouviram “não” a conseguirem o que é delas por direito.",
+    Icon: Award,
   },
   {
     title: "Suporte em cada etapa",
     body: "Cuido da burocracia e dos documentos para você focar no que importa: sua recuperação e sua vida.",
+    Icon: LifeBuoy,
   },
 ];
 
@@ -173,21 +193,27 @@ function Index() {
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {benefits.map((b) => (
-            <article
-              key={b.tag}
-              className="group relative flex flex-col rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-terracotta/40 hover:shadow-xl hover:shadow-terracotta/5"
-            >
-              <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                {b.tag}
-              </div>
-              <h3 className="mt-4 font-display text-xl leading-snug text-foreground">
-                {b.hook}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b.body}</p>
-              <div className="mt-6 h-px w-10 bg-terracotta/60 transition-all group-hover:w-16" />
-            </article>
-          ))}
+          {benefits.map((b) => {
+            const Icon = b.Icon;
+            return (
+              <article
+                key={b.tag}
+                className="group relative flex flex-col rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-terracotta/40 hover:shadow-xl hover:shadow-terracotta/5"
+              >
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-nude/70 text-terracotta transition-transform group-hover:-rotate-3 group-hover:scale-105">
+                  <Icon size={28} strokeWidth={1.6} />
+                </div>
+                <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                  {b.tag}
+                </div>
+                <h3 className="mt-3 font-display text-xl leading-snug text-foreground">
+                  {b.hook}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b.body}</p>
+                <div className="mt-6 h-px w-10 bg-terracotta/60 transition-all group-hover:w-16" />
+              </article>
+            );
+          })}
         </div>
       </section>
 
@@ -211,18 +237,24 @@ function Index() {
               </div>
             </div>
             <ul className="grid gap-4 sm:grid-cols-2">
-              {reasons.map((r, i) => (
-                <li
-                  key={r.title}
-                  className="rounded-2xl border border-border/70 bg-background p-6"
-                >
-                  <div className="font-display text-2xl text-terracotta">
-                    0{i + 1}
-                  </div>
-                  <h3 className="mt-2 font-display text-lg text-foreground">{r.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.body}</p>
-                </li>
-              ))}
+              {reasons.map((r, i) => {
+                const Icon = r.Icon;
+                return (
+                  <li
+                    key={r.title}
+                    className="rounded-2xl border border-border/70 bg-background p-6"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-terracotta/10 text-terracotta">
+                        <Icon size={20} strokeWidth={1.8} />
+                      </div>
+                      <div className="font-display text-xl text-terracotta">0{i + 1}</div>
+                    </div>
+                    <h3 className="mt-3 font-display text-lg text-foreground">{r.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.body}</p>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
