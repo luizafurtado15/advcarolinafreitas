@@ -9,9 +9,14 @@ import {
   MessagesSquare,
   Award,
   LifeBuoy,
+  MapPin,
+  Plane,
+  Video,
 } from "lucide-react";
 import logoAsset from "@/assets/logo-carol.jpg.asset.json";
 import photoAsset from "@/assets/carolina-freitas.jpg.asset.json";
+import escritorioSala from "@/assets/escritorio-sala.jpg.asset.json";
+import escritorioEquipe from "@/assets/escritorio-equipe.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -217,7 +222,146 @@ function Index() {
         </div>
       </section>
 
-      {/* Por que escolher */}
+      {/* Escritório + Atendimento Nacional */}
+      <section id="escritorio" className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(180deg, transparent, oklch(0.87 0.028 55 / 0.35) 40%, transparent)",
+          }}
+        />
+        <div className="mx-auto max-w-6xl px-5 py-20">
+          <div className="max-w-2xl">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">
+              Nosso escritório
+            </div>
+            <h2 className="mt-3 font-display text-3xl md:text-4xl">
+              Sediados em <span className="italic text-terracotta">Fortaleza-CE</span>,
+              atendendo todo o Brasil.
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Nosso escritório físico fica no coração do Ceará, mas graças ao atendimento 100%
+              digital, cuidamos do seu caso onde quer que você esteja — do Oiapoque ao Chuí.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="overflow-hidden rounded-[1.5rem] border border-nude shadow-xl shadow-terracotta/5">
+              <img
+                src={escritorioSala.url}
+                alt="Dra. Carolina Freitas em seu escritório em Fortaleza"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="overflow-hidden rounded-[1.5rem] border border-nude shadow-xl shadow-terracotta/5">
+              <img
+                src={escritorioEquipe.url}
+                alt="Equipe do escritório Carolina Freitas Advocacia"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Mapa Brasil */}
+          <div className="mt-12 grid items-center gap-10 rounded-3xl border border-border bg-card p-8 md:grid-cols-[1fr_1fr] md:p-12">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-terracotta/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-terracotta">
+                <MapPin size={14} /> Atendimento Nacional
+              </div>
+              <h3 className="mt-4 font-display text-2xl md:text-3xl">
+                Não importa onde você mora — seu direito não tem fronteira.
+              </h3>
+              <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-nude/70 text-terracotta">
+                    <Video size={16} />
+                  </span>
+                  <span>
+                    <strong className="text-foreground">Consultas online</strong> por WhatsApp e
+                    videochamada, sem sair de casa.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-nude/70 text-terracotta">
+                    <Plane size={16} />
+                  </span>
+                  <span>
+                    <strong className="text-foreground">Processos digitais</strong> em todas as
+                    agências do INSS e Justiça Federal do país.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-nude/70 text-terracotta">
+                    <MapPin size={16} />
+                  </span>
+                  <span>
+                    <strong className="text-foreground">Escritório físico</strong> em
+                    Fortaleza-CE para quem preferir atendimento presencial.
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="relative flex items-center justify-center">
+              <div className="absolute inset-0 -z-10 rounded-[2rem] bg-nude/40" />
+              <svg
+                viewBox="0 0 600 600"
+                className="h-auto w-full max-w-md"
+                aria-label="Mapa do Brasil - atendimento nacional"
+              >
+                <defs>
+                  <radialGradient id="brasilGrad" cx="50%" cy="45%" r="60%">
+                    <stop offset="0%" stopColor="oklch(0.58 0.12 48)" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="oklch(0.58 0.12 48)" stopOpacity="0.08" />
+                  </radialGradient>
+                </defs>
+                {/* Simplified Brazil silhouette */}
+                <path
+                  d="M247 78 c18 -6 42 -4 60 4 c15 6 28 4 44 -2 c14 -5 30 -2 40 8 c10 10 20 10 34 6 c18 -5 34 6 40 22 c6 16 20 28 36 30 c18 2 30 14 32 32 c2 20 -8 34 -20 46 c-8 8 -8 20 0 30 c14 18 12 40 -4 56 c-8 8 -10 20 -6 32 c8 22 -4 46 -26 54 c-14 4 -22 16 -24 30 c-2 22 -18 38 -40 42 c-16 3 -26 14 -30 28 c-6 22 -26 36 -50 34 c-16 -1 -30 6 -36 20 c-8 20 -30 30 -50 24 c-16 -5 -32 -1 -42 12 c-14 18 -40 22 -58 8 c-14 -10 -32 -10 -46 0 c-20 14 -48 6 -58 -14 c-6 -12 -18 -18 -32 -16 c-24 4 -46 -14 -46 -38 c0 -14 -6 -26 -18 -32 c-20 -10 -26 -34 -14 -52 c8 -12 8 -26 0 -38 c-12 -18 -6 -42 12 -52 c14 -8 20 -22 16 -38 c-4 -22 12 -42 34 -44 c14 -1 26 -10 30 -24 c6 -22 30 -36 52 -30 c14 4 28 -2 36 -14 c8 -14 24 -20 40 -18 c14 2 26 -6 30 -20 c4 -14 16 -22 30 -22 z"
+                  fill="url(#brasilGrad)"
+                  stroke="oklch(0.58 0.12 48)"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                />
+                {/* Radiating rings from Fortaleza */}
+                {[40, 80, 130, 190].map((r) => (
+                  <circle
+                    key={r}
+                    cx="420"
+                    cy="180"
+                    r={r}
+                    fill="none"
+                    stroke="oklch(0.58 0.12 48)"
+                    strokeWidth="1"
+                    strokeDasharray="3 6"
+                    opacity={0.35}
+                  />
+                ))}
+                {/* Fortaleza pin */}
+                <circle cx="420" cy="180" r="10" fill="oklch(0.58 0.12 48)" />
+                <circle cx="420" cy="180" r="16" fill="none" stroke="oklch(0.58 0.12 48)" strokeWidth="2" opacity="0.6" />
+                <text
+                  x="420"
+                  y="160"
+                  textAnchor="middle"
+                  className="font-display"
+                  fontSize="18"
+                  fontWeight="600"
+                  fill="oklch(0.28 0.02 40)"
+                >
+                  Fortaleza-CE
+                </text>
+              </svg>
+            </div>
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <WhatsappButton size="lg">Agendar minha consulta online</WhatsappButton>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-nude/40">
         <div className="mx-auto max-w-6xl px-5 py-20">
           <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr]">
