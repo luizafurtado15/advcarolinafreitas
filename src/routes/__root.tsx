@@ -77,20 +77,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Dra. Carolina Freitas — Advogada  especialista em Causas do" },
+      { title: "Dra. Carolina Freitas — Especialista em causas do INSS" },
       {
         name: "description",
         content:
           "Quando o INSS te diz NÃO, eu te ajudo. Dra. Carolina Freitas, advogada previdenciária: auxílio-doença, BPC-LOAS, aposentadorias e mais.",
       },
-      { property: "og:title", content: "Dra. Carolina Freitas — Advogada  especialista em Causas do" },
+      { property: "og:title", content: "Dra. Carolina Freitas — Especialista em causas do INSS" },
       {
         property: "og:description",
         content: "Quando o INSS te diz NÃO, eu te ajudo. Atendimento humano e sem juridiquês.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Dra. Carolina Freitas — Advogada  especialista em Causas do" },
+      { name: "twitter:title", content: "Dra. Carolina Freitas — Especialista em causas do INSS" },
       { name: "description", content: "Quando o INSS te diz NÃO, eu te ajudo! Me conte a sua situação e descubra o seu direito!" },
       { property: "og:description", content: "Quando o INSS te diz NÃO, eu te ajudo! Me conte a sua situação e descubra o seu direito!" },
       { name: "twitter:description", content: "Quando o INSS te diz NÃO, eu te ajudo! Me conte a sua situação e descubra o seu direito!" },
