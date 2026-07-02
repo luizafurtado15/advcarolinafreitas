@@ -9,9 +9,14 @@ import {
   MessagesSquare,
   Award,
   LifeBuoy,
+  MapPin,
+  Plane,
+  Video,
 } from "lucide-react";
 import logoAsset from "@/assets/logo-carol.jpg.asset.json";
 import photoAsset from "@/assets/carolina-freitas.jpg.asset.json";
+import escritorioSala from "@/assets/escritorio-sala.jpg.asset.json";
+import escritorioEquipe from "@/assets/escritorio-equipe.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
