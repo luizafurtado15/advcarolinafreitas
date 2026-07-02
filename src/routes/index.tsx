@@ -193,21 +193,27 @@ function Index() {
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {benefits.map((b) => (
-            <article
-              key={b.tag}
-              className="group relative flex flex-col rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-terracotta/40 hover:shadow-xl hover:shadow-terracotta/5"
-            >
-              <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                {b.tag}
-              </div>
-              <h3 className="mt-4 font-display text-xl leading-snug text-foreground">
-                {b.hook}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b.body}</p>
-              <div className="mt-6 h-px w-10 bg-terracotta/60 transition-all group-hover:w-16" />
-            </article>
-          ))}
+          {benefits.map((b) => {
+            const Icon = b.Icon;
+            return (
+              <article
+                key={b.tag}
+                className="group relative flex flex-col rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-terracotta/40 hover:shadow-xl hover:shadow-terracotta/5"
+              >
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-nude/70 text-terracotta transition-transform group-hover:-rotate-3 group-hover:scale-105">
+                  <Icon size={28} strokeWidth={1.6} />
+                </div>
+                <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                  {b.tag}
+                </div>
+                <h3 className="mt-3 font-display text-xl leading-snug text-foreground">
+                  {b.hook}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b.body}</p>
+                <div className="mt-6 h-px w-10 bg-terracotta/60 transition-all group-hover:w-16" />
+              </article>
+            );
+          })}
         </div>
       </section>
 
