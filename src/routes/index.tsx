@@ -1,4 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {
+  ShieldPlus,
+  HardHat,
+  HeartHandshake,
+  Accessibility,
+  CalendarClock,
+  Ear,
+  MessagesSquare,
+  Award,
+  LifeBuoy,
+} from "lucide-react";
 import logoAsset from "@/assets/logo-carol.jpg.asset.json";
 import photoAsset from "@/assets/carolina-freitas.jpg.asset.json";
 
