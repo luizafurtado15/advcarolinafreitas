@@ -61,26 +61,31 @@ const benefits = [
     tag: "01 · Auxílio-Doença",
     hook: "Proteção para quem não pode trabalhar.",
     body: "Se uma doença ou acidente te afastou do trabalho por mais de 15 dias, você tem direito a receber. Atuamos para reverter perícias negadas e garantir seu afastamento remunerado pelo INSS.",
+    Icon: ShieldPlus,
   },
   {
     tag: "02 · Auxílio-Acidente",
     hook: "Receba sem parar de trabalhar.",
     body: "Se você sofreu um acidente que deixou sequelas e reduziu sua capacidade, pode ter direito a uma indenização mensal de 50% do salário de benefício até a aposentadoria.",
+    Icon: HardHat,
   },
   {
     tag: "03 · BPC-LOAS",
     hook: "Benefício mesmo sem ter contribuído.",
     body: "Idosos (+65) ou pessoas com deficiência de baixa renda podem receber um salário mínimo sem nunca ter pago INSS. Comprovamos a vulnerabilidade social para garantir esse direito.",
+    Icon: HeartHandshake,
   },
   {
     tag: "04 · Aposentadoria por Incapacidade",
     hook: "Quando não há mais expectativa de voltar a trabalhar.",
     body: "Se você tem uma doença grave ou sequela que te impede de exercer qualquer atividade, sem previsão de melhora, pode ter direito a um benefício mensal definitivo do INSS.",
+    Icon: Accessibility,
   },
   {
     tag: "05 · Aposentadoria por Idade / Tempo",
     hook: "Não perca dinheiro na aposentadoria.",
     body: "Faltam poucos meses ou anos? Realizamos um Planejamento Previdenciário detalhado (análise do CNIS) para organizar sua documentação e garantir o melhor valor possível.",
+    Icon: CalendarClock,
   },
 ];
 
@@ -88,18 +93,22 @@ const reasons = [
   {
     title: "Atendimento humano, do início ao fim",
     body: "Você não vai ser só mais um número. Vou acompanhar seu caso de perto, com atenção real à sua história.",
+    Icon: Ear,
   },
   {
     title: "Clareza sem juridiquês",
     body: "Vou te explicar cada etapa do processo em uma linguagem que você entende, sem termos complicados.",
+    Icon: MessagesSquare,
   },
   {
     title: "Experiência em causas negadas pelo INSS",
     body: "Já ajudei muitas pessoas que ouviram “não” a conseguirem o que é delas por direito.",
+    Icon: Award,
   },
   {
     title: "Suporte em cada etapa",
     body: "Cuido da burocracia e dos documentos para você focar no que importa: sua recuperação e sua vida.",
+    Icon: LifeBuoy,
   },
 ];
 
