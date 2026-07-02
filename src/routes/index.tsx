@@ -237,18 +237,24 @@ function Index() {
               </div>
             </div>
             <ul className="grid gap-4 sm:grid-cols-2">
-              {reasons.map((r, i) => (
-                <li
-                  key={r.title}
-                  className="rounded-2xl border border-border/70 bg-background p-6"
-                >
-                  <div className="font-display text-2xl text-terracotta">
-                    0{i + 1}
-                  </div>
-                  <h3 className="mt-2 font-display text-lg text-foreground">{r.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.body}</p>
-                </li>
-              ))}
+              {reasons.map((r, i) => {
+                const Icon = r.Icon;
+                return (
+                  <li
+                    key={r.title}
+                    className="rounded-2xl border border-border/70 bg-background p-6"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-terracotta/10 text-terracotta">
+                        <Icon size={20} strokeWidth={1.8} />
+                      </div>
+                      <div className="font-display text-xl text-terracotta">0{i + 1}</div>
+                    </div>
+                    <h3 className="mt-3 font-display text-lg text-foreground">{r.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.body}</p>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
