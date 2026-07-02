@@ -103,9 +103,9 @@
   border-radius: 9999px;
   box-shadow: 0 10px 30px -10px oklch(0.68 0.17 148 / 0.5);
   transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-}
-@utility btn-whatsapp:hover {
-  background-color: var(--whatsapp-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 14px 32px -10px oklch(0.68 0.17 148 / 0.65);
+  &:hover {
+    background-color: var(--whatsapp-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 32px -10px oklch(0.68 0.17 148 / 0.65);
+  }
 }
