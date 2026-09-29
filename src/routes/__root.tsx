@@ -77,25 +77,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Dra. Carolina Freitas — Especialista em causas do INSS" },
-      {
-        name: "description",
-        content:
-          "Quando o INSS te diz NÃO, eu te ajudo. Dra. Carolina Freitas, advogada previdenciária: auxílio-doença, BPC-LOAS, aposentadorias e mais.",
-      },
-      { property: "og:title", content: "Dra. Carolina Freitas — Especialista em causas do INSS" },
-      {
-        property: "og:description",
-        content: "Quando o INSS te diz NÃO, eu te ajudo. Atendimento humano e sem juridiquês.",
-      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Dra. Carolina Freitas — Especialista em causas do INSS" },
-      { name: "description", content: "Quando o INSS te diz NÃO, eu te ajudo! Me conte a sua situação e descubra o seu direito!" },
-      { property: "og:description", content: "Quando o INSS te diz NÃO, eu te ajudo! Me conte a sua situação e descubra o seu direito!" },
-      { name: "twitter:description", content: "Quando o INSS te diz NÃO, eu te ajudo! Me conte a sua situação e descubra o seu direito!" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e52ce036-4733-4053-ba59-12609b062f4a/id-preview-af2649c5--5e3085f2-17e6-40e5-b37b-d52e97b362b0.lovable.app-1783029705286.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e52ce036-4733-4053-ba59-12609b062f4a/id-preview-af2649c5--5e3085f2-17e6-40e5-b37b-d52e97b362b0.lovable.app-1783029705286.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -116,7 +99,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
