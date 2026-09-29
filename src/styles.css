@@ -39,6 +39,8 @@
   --color-terracotta-dark: var(--terracotta-dark);
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-dark: var(--whatsapp-dark);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-hero-subtle: var(--hero-subtle);
 }
 
 :root {

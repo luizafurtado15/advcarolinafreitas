@@ -136,17 +136,17 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-nude">
+         <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-5 py-4">
+           <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+             <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-nude">
               <img src={logoAsset.url} alt="Logo Dra. Carolina Freitas" className="h-full w-full object-cover" />
             </div>
-            <div className="leading-tight">
-              <div className="font-display text-base font-semibold">Dra. Carolina Freitas</div>
-              <div className="text-xs text-muted-foreground">Advocacia Previdenciária</div>
+             <div className="min-w-0 leading-tight">
+               <div className="font-display text-sm font-semibold sm:text-base">Dra. Carolina Freitas</div>
+               <div className="hidden text-xs text-muted-foreground sm:block">Advocacia Previdenciária</div>
             </div>
           </div>
-          <WhatsappButton size="sm">Fale com o escritório</WhatsappButton>
+           <div className="shrink-0"><WhatsappButton size="sm">Fale com o escritório</WhatsappButton></div>
         </div>
       </header>
 
