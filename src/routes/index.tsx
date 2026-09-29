@@ -12,20 +12,37 @@ import {
   MapPin,
   Plane,
   Video,
+  Instagram,
+  Mail,
+  Clock3,
+  ExternalLink,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import logoAsset from "@/assets/logo-carol.jpg.asset.json";
 import photoAsset from "@/assets/carolina-freitas.jpg.asset.json";
 import escritorioSala from "@/assets/escritorio-sala.jpg.asset.json";
 import escritorioEquipe from "@/assets/escritorio-equipe.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Carolina Freitas Advocacia Previdenciária | Benefícios do INSS" },
+      { name: "description", content: "Seu benefício é nossa prioridade! Advocacia previdenciária e benefícios do INSS. Atendimento presencial em Fortaleza e online em todo o Brasil." },
+      { property: "og:title", content: "Carolina Freitas Advocacia Previdenciária | Benefícios do INSS" },
+      { property: "og:description", content: "Seu benefício é nossa prioridade! Atendimento previdenciário presencial em Fortaleza e online em todo o Brasil." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://advcarolinafreitas.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://advcarolinafreitas.lovable.app/" }],
+  }),
   component: Index,
 });
 
 const WHATSAPP_URL =
   "https://wa.me/558587610651?text=" +
   encodeURIComponent(
-    "Olá Dra. Carolina, gostaria de tirar uma dúvida sobre meu caso no INSS.",
+    "Olá, gostaria de falar com o escritório sobre meu caso no INSS.",
   );
 
 function WhatsAppIcon({ className = "h-5 w-5" }: { className?: string }) {
@@ -49,47 +66,44 @@ function WhatsappButton({
     lg: "text-lg px-8 py-4",
   };
   return (
-    <a
-      href={WHATSAPP_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`btn-whatsapp ${sizes[size]}`}
-    >
-      <WhatsAppIcon className={size === "lg" ? "h-6 w-6" : "h-5 w-5"} />
-      {children ?? "Falar no WhatsApp"}
-    </a>
+    <Button asChild size="lg" className={`btn-whatsapp h-auto max-w-full whitespace-normal text-center ${sizes[size]}`}>
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+        <WhatsAppIcon className={size === "lg" ? "!h-6 !w-6" : "!h-5 !w-5"} />
+        {children ?? "Fale com o escritório"}
+      </a>
+    </Button>
   );
 }
 
 const benefits = [
   {
-    tag: "01 · Auxílio-Doença",
-    hook: "Proteção para quem não pode trabalhar.",
-    body: "Se uma doença ou acidente te afastou do trabalho por mais de 15 dias, você tem direito a receber. Atuamos para reverter perícias negadas e garantir seu afastamento remunerado pelo INSS.",
-    Icon: ShieldPlus,
-  },
-  {
-    tag: "02 · Auxílio-Acidente",
+    tag: "01", name: "Auxílio-Acidente",
     hook: "Receba sem parar de trabalhar.",
-    body: "Se você sofreu um acidente que deixou sequelas e reduziu sua capacidade, pode ter direito a uma indenização mensal de 50% do salário de benefício até a aposentadoria.",
+    body: "Se você sofreu um acidente que deixou sequelas e reduziu sua capacidade de trabalho, pode ter direito a um benefício mensal. Nossa equipe analisa o seu caso e orienta os próximos passos.",
     Icon: HardHat,
   },
   {
-    tag: "03 · BPC-LOAS",
+    tag: "02", name: "BPC/LOAS",
     hook: "Benefício mesmo sem ter contribuído.",
-    body: "Idosos (+65) ou pessoas com deficiência de baixa renda podem receber um salário mínimo sem nunca ter pago INSS. Comprovamos a vulnerabilidade social para garantir esse direito.",
+    body: "Pessoas com 65 anos ou mais e pessoas com deficiência em situação de baixa renda podem ter direito a um salário mínimo mensal, mesmo sem contribuições ao INSS. Cada situação precisa ser avaliada.",
     Icon: HeartHandshake,
   },
   {
-    tag: "04 · Aposentadoria por Incapacidade",
+    tag: "03", name: "Auxílio por incapacidade temporária",
+    hook: "Proteção durante o afastamento do trabalho.",
+    body: "Se uma doença ou acidente impede você de trabalhar temporariamente, podemos orientar sobre o pedido ao INSS e a documentação necessária, inclusive após uma negativa.",
+    Icon: ShieldPlus,
+  },
+  {
+    tag: "04", name: "Aposentadoria por incapacidade permanente",
     hook: "Quando não há mais expectativa de voltar a trabalhar.",
-    body: "Se você tem uma doença grave ou sequela que te impede de exercer qualquer atividade, sem previsão de melhora, pode ter direito a um benefício mensal definitivo do INSS.",
+    body: "Se uma condição de saúde impede o exercício de atividades profissionais sem perspectiva de reabilitação, podemos avaliar a possibilidade de aposentadoria por incapacidade permanente.",
     Icon: Accessibility,
   },
   {
-    tag: "05 · Aposentadoria por Idade / Tempo",
-    hook: "Não perca dinheiro na aposentadoria.",
-    body: "Faltam poucos meses ou anos? Realizamos um Planejamento Previdenciário detalhado (análise do CNIS) para organizar sua documentação e garantir o melhor valor possível.",
+    tag: "05", name: "Aposentadorias e planejamento",
+    hook: "Planeje o próximo capítulo com informação.",
+    body: "Analisamos o histórico de contribuições e a documentação para orientar pedidos de aposentadoria por idade ou tempo de contribuição e o planejamento previdenciário.",
     Icon: CalendarClock,
   },
 ];
@@ -97,22 +111,22 @@ const benefits = [
 const reasons = [
   {
     title: "Atendimento humano, do início ao fim",
-    body: "Você não vai ser só mais um número. Vou acompanhar seu caso de perto, com atenção real à sua história.",
+    body: "Nossa equipe escuta sua história e acompanha cada etapa do atendimento com atenção.",
     Icon: Ear,
   },
   {
     title: "Clareza sem juridiquês",
-    body: "Vou te explicar cada etapa do processo em uma linguagem que você entende, sem termos complicados.",
+    body: "Explicamos cada etapa do processo em uma linguagem simples, sem termos complicados.",
     Icon: MessagesSquare,
   },
   {
-    title: "Experiência em causas negadas pelo INSS",
-    body: "Já ajudei muitas pessoas que ouviram “não” a conseguirem o que é delas por direito.",
+    title: "Orientação em pedidos ao INSS",
+    body: "Analisamos documentos, requerimentos e negativas para orientar o caminho adequado a cada caso.",
     Icon: Award,
   },
   {
     title: "Suporte em cada etapa",
-    body: "Cuido da burocracia e dos documentos para você focar no que importa: sua recuperação e sua vida.",
+    body: "A equipe orienta sobre a documentação e acompanha os trâmites com você.",
     Icon: LifeBuoy,
   },
 ];
