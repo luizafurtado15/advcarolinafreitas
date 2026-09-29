@@ -39,17 +39,23 @@
   --color-terracotta-dark: var(--terracotta-dark);
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-dark: var(--whatsapp-dark);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-hero-subtle: var(--hero-subtle);
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.5rem;
 
   /* Brand palette from briefing */
   --nude: oklch(0.87 0.028 55);            /* #E3D1C3 fundo do logo */
   --terracotta: oklch(0.58 0.12 48);       /* #B5651D blazer */
   --terracotta-dark: oklch(0.48 0.11 46);
-  --whatsapp: oklch(0.68 0.17 148);        /* WhatsApp green */
-  --whatsapp-dark: oklch(0.58 0.17 148);
+  --whatsapp: oklch(0.58 0.12 48);
+  --whatsapp-dark: oklch(0.48 0.11 46);
+  --hero-veil: linear-gradient(90deg, oklch(0.19 0.015 50 / 0.9) 0%, oklch(0.19 0.015 50 / 0.74) 42%, oklch(0.19 0.015 50 / 0.08) 100%);
+  --hero-veil-mobile: linear-gradient(0deg, oklch(0.19 0.015 50 / 0.92) 0%, oklch(0.19 0.015 50 / 0.72) 58%, oklch(0.19 0.015 50 / 0.16) 100%);
+  --hero-foreground: oklch(0.99 0.005 60);
+  --hero-subtle: oklch(0.91 0.015 60);
 
   --background: oklch(0.985 0.008 60);     /* off-white warm */
   --foreground: oklch(0.28 0.015 60);      /* #3D3C38 */
@@ -87,7 +93,7 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
 }
 
@@ -97,15 +103,20 @@
   justify-content: center;
   gap: 0.625rem;
   background-color: var(--whatsapp);
-  color: white;
+  color: var(--primary-foreground);
   font-weight: 600;
   padding: 0.9rem 1.6rem;
-  border-radius: 9999px;
-  box-shadow: 0 10px 30px -10px oklch(0.68 0.17 148 / 0.5);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--primary) 35%, transparent);
   transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   &:hover {
     background-color: var(--whatsapp-dark);
     transform: translateY(-1px);
-    box-shadow: 0 14px 32px -10px oklch(0.68 0.17 148 / 0.65);
+    box-shadow: 0 14px 32px -10px color-mix(in oklab, var(--primary) 45%, transparent);
   }
+}
+
+.hero-veil { background: var(--hero-veil); }
+@media (max-width: 767px) {
+  .hero-veil { background: var(--hero-veil-mobile); }
 }

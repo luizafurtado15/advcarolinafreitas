@@ -12,20 +12,37 @@ import {
   MapPin,
   Plane,
   Video,
+  Instagram,
+  Mail,
+  Clock3,
+  ExternalLink,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import logoAsset from "@/assets/logo-carol.jpg.asset.json";
 import photoAsset from "@/assets/carolina-freitas.jpg.asset.json";
 import escritorioSala from "@/assets/escritorio-sala.jpg.asset.json";
 import escritorioEquipe from "@/assets/escritorio-equipe.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Carolina Freitas Advocacia Previdenciária | Benefícios do INSS" },
+      { name: "description", content: "Seu benefício é nossa prioridade! Advocacia previdenciária e benefícios do INSS. Atendimento presencial em Fortaleza e online em todo o Brasil." },
+      { property: "og:title", content: "Carolina Freitas Advocacia Previdenciária | Benefícios do INSS" },
+      { property: "og:description", content: "Seu benefício é nossa prioridade! Atendimento previdenciário presencial em Fortaleza e online em todo o Brasil." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://advcarolinafreitas.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://advcarolinafreitas.lovable.app/" }],
+  }),
   component: Index,
 });
 
 const WHATSAPP_URL =
   "https://wa.me/558587610651?text=" +
   encodeURIComponent(
-    "Olá Dra. Carolina, gostaria de tirar uma dúvida sobre meu caso no INSS.",
+    "Olá, gostaria de falar com o escritório sobre meu caso no INSS.",
   );
 
 function WhatsAppIcon({ className = "h-5 w-5" }: { className?: string }) {
@@ -49,47 +66,44 @@ function WhatsappButton({
     lg: "text-lg px-8 py-4",
   };
   return (
-    <a
-      href={WHATSAPP_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`btn-whatsapp ${sizes[size]}`}
-    >
-      <WhatsAppIcon className={size === "lg" ? "h-6 w-6" : "h-5 w-5"} />
-      {children ?? "Falar no WhatsApp"}
-    </a>
+    <Button asChild size="lg" className={`btn-whatsapp h-auto max-w-full whitespace-normal text-center ${sizes[size]}`}>
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+        <WhatsAppIcon className={size === "lg" ? "!h-6 !w-6" : "!h-5 !w-5"} />
+        {children ?? "Fale com o escritório"}
+      </a>
+    </Button>
   );
 }
 
 const benefits = [
   {
-    tag: "01 · Auxílio-Doença",
-    hook: "Proteção para quem não pode trabalhar.",
-    body: "Se uma doença ou acidente te afastou do trabalho por mais de 15 dias, você tem direito a receber. Atuamos para reverter perícias negadas e garantir seu afastamento remunerado pelo INSS.",
-    Icon: ShieldPlus,
-  },
-  {
-    tag: "02 · Auxílio-Acidente",
+    tag: "01", name: "Auxílio-Acidente",
     hook: "Receba sem parar de trabalhar.",
-    body: "Se você sofreu um acidente que deixou sequelas e reduziu sua capacidade, pode ter direito a uma indenização mensal de 50% do salário de benefício até a aposentadoria.",
+    body: "Se você sofreu um acidente que deixou sequelas e reduziu sua capacidade de trabalho, pode ter direito a um benefício mensal. Nossa equipe analisa o seu caso e orienta os próximos passos.",
     Icon: HardHat,
   },
   {
-    tag: "03 · BPC-LOAS",
+    tag: "02", name: "BPC/LOAS",
     hook: "Benefício mesmo sem ter contribuído.",
-    body: "Idosos (+65) ou pessoas com deficiência de baixa renda podem receber um salário mínimo sem nunca ter pago INSS. Comprovamos a vulnerabilidade social para garantir esse direito.",
+    body: "Pessoas com 65 anos ou mais e pessoas com deficiência em situação de baixa renda podem ter direito a um salário mínimo mensal, mesmo sem contribuições ao INSS. Cada situação precisa ser avaliada.",
     Icon: HeartHandshake,
   },
   {
-    tag: "04 · Aposentadoria por Incapacidade",
+    tag: "03", name: "Auxílio por incapacidade temporária",
+    hook: "Proteção durante o afastamento do trabalho.",
+    body: "Se uma doença ou acidente impede você de trabalhar temporariamente, podemos orientar sobre o pedido ao INSS e a documentação necessária, inclusive após uma negativa.",
+    Icon: ShieldPlus,
+  },
+  {
+    tag: "04", name: "Aposentadoria por incapacidade permanente",
     hook: "Quando não há mais expectativa de voltar a trabalhar.",
-    body: "Se você tem uma doença grave ou sequela que te impede de exercer qualquer atividade, sem previsão de melhora, pode ter direito a um benefício mensal definitivo do INSS.",
+    body: "Se uma condição de saúde impede o exercício de atividades profissionais sem perspectiva de reabilitação, podemos avaliar a possibilidade de aposentadoria por incapacidade permanente.",
     Icon: Accessibility,
   },
   {
-    tag: "05 · Aposentadoria por Idade / Tempo",
-    hook: "Não perca dinheiro na aposentadoria.",
-    body: "Faltam poucos meses ou anos? Realizamos um Planejamento Previdenciário detalhado (análise do CNIS) para organizar sua documentação e garantir o melhor valor possível.",
+    tag: "05", name: "Aposentadorias e planejamento",
+    hook: "Planeje o próximo capítulo com informação.",
+    body: "Analisamos o histórico de contribuições e a documentação para orientar pedidos de aposentadoria por idade ou tempo de contribuição e o planejamento previdenciário.",
     Icon: CalendarClock,
   },
 ];
@@ -97,22 +111,22 @@ const benefits = [
 const reasons = [
   {
     title: "Atendimento humano, do início ao fim",
-    body: "Você não vai ser só mais um número. Vou acompanhar seu caso de perto, com atenção real à sua história.",
+    body: "Nossa equipe escuta sua história e acompanha cada etapa do atendimento com atenção.",
     Icon: Ear,
   },
   {
     title: "Clareza sem juridiquês",
-    body: "Vou te explicar cada etapa do processo em uma linguagem que você entende, sem termos complicados.",
+    body: "Explicamos cada etapa do processo em uma linguagem simples, sem termos complicados.",
     Icon: MessagesSquare,
   },
   {
-    title: "Experiência em causas negadas pelo INSS",
-    body: "Já ajudei muitas pessoas que ouviram “não” a conseguirem o que é delas por direito.",
+    title: "Orientação em pedidos ao INSS",
+    body: "Analisamos documentos, requerimentos e negativas para orientar o caminho adequado a cada caso.",
     Icon: Award,
   },
   {
     title: "Suporte em cada etapa",
-    body: "Cuido da burocracia e dos documentos para você focar no que importa: sua recuperação e sua vida.",
+    body: "A equipe orienta sobre a documentação e acompanha os trâmites com você.",
     Icon: LifeBuoy,
   },
 ];
@@ -122,62 +136,47 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-nude">
+         <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-5 py-4">
+           <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+             <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-nude">
               <img src={logoAsset.url} alt="Logo Dra. Carolina Freitas" className="h-full w-full object-cover" />
             </div>
-            <div className="leading-tight">
-              <div className="font-display text-base font-semibold">Dra. Carolina Freitas</div>
-              <div className="text-xs text-muted-foreground">Advocacia Previdenciária</div>
+             <div className="min-w-0 leading-tight">
+               <div className="font-display text-sm font-semibold sm:text-base">Dra. Carolina Freitas</div>
+               <div className="hidden text-xs text-muted-foreground sm:block">Advocacia Previdenciária</div>
             </div>
           </div>
-          <WhatsappButton size="sm">WhatsApp</WhatsappButton>
+           <div className="shrink-0"><WhatsappButton size="sm">Fale com o escritório</WhatsappButton></div>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "radial-gradient(ellipse at 80% 20%, oklch(0.87 0.028 55 / 0.55), transparent 55%), radial-gradient(ellipse at 10% 90%, oklch(0.58 0.12 48 / 0.14), transparent 60%)",
-          }}
-        />
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-[1.1fr_0.9fr] md:py-24">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-terracotta/30 bg-terracotta/5 px-3 py-1 text-xs font-medium uppercase tracking-wider text-terracotta">
-              <span className="h-1.5 w-1.5 rounded-full bg-terracotta" />
-              OAB · Advocacia Previdenciária
-            </span>
-            <h1 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-foreground md:text-6xl">
-              Quando o INSS te diz <span className="italic text-terracotta">NÃO</span>,{" "}
-              <br className="hidden md:block" />
-              eu te ajudo.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Sou a <strong className="text-foreground">Dra. Carolina Freitas</strong>, advogada
-              previdenciária. Vou te ouvir, entender sua história e lutar pelo benefício que é seu
-              por direito.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <WhatsappButton size="lg">Falar no WhatsApp</WhatsappButton>
-              <a href="#beneficios" className="text-sm font-medium text-foreground/70 underline-offset-4 hover:underline">
-                Ver benefícios →
-              </a>
+      <section className="relative flex min-h-[560px] items-end overflow-hidden md:min-h-[620px] md:items-center">
+        <img src={photoAsset.url} alt="Dra. Carolina Freitas, advogada previdenciária" className="absolute inset-0 h-full w-full object-cover object-[68%_center] md:object-center" />
+        <div className="hero-veil absolute inset-0" />
+        <div className="relative mx-auto w-full max-w-6xl px-5 pb-12 pt-32 md:py-24">
+          <div className="max-w-2xl text-hero-foreground">
+            <p className="text-xs font-bold uppercase tracking-widest text-hero-subtle">Carolina Freitas Advocacia Previdenciária · OAB/CE 23.787</p>
+            <h1 className="mt-5 font-display text-4xl leading-tight md:text-6xl">Seu benefício é nossa prioridade!</h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-hero-subtle">Advocacia previdenciária e benefícios do INSS. Atendimento presencial em Fortaleza, Ceará, e online em todo o Brasil.</p>
+            <div className="mt-8 flex flex-wrap items-center gap-5">
+              <WhatsappButton size="lg">Fale com o escritório</WhatsappButton>
+              <a href="#beneficios" className="text-sm font-semibold text-hero-foreground underline underline-offset-4">Conheça as áreas de atuação</a>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="relative">
-            <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-nude/70" />
-            <div className="overflow-hidden rounded-[1.75rem] border border-nude shadow-2xl shadow-terracotta/10">
-              <img
-                src={photoAsset.url}
-                alt="Dra. Carolina Freitas, advogada previdenciária"
-                className="h-full w-full object-cover"
-              />
-            </div>
+      <section className="border-y border-border bg-card">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[0.75fr_1.25fr] md:gap-20 md:py-20">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-terracotta">À frente do escritório</p>
+            <h2 className="mt-3 font-display text-3xl md:text-4xl">Dra. Carolina Freitas Moreira</h2>
+            <p className="mt-3 text-sm font-semibold text-terracotta">Advogada · OAB/CE 23.787</p>
+          </div>
+          <div className="self-center space-y-4 text-base leading-relaxed text-muted-foreground">
+            <p>Carolina Freitas Moreira atua na advocacia previdenciária, orientando pessoas em questões relacionadas aos benefícios do INSS. À frente do escritório em Fortaleza, oferece atendimento presencial e, com sua equipe, também atende online em todo o Brasil.</p>
+            <p>As áreas de atuação incluem auxílio-acidente, BPC/LOAS, benefícios por incapacidade, aposentadorias e planejamento previdenciário. Cada caso é analisado individualmente, com orientação clara sobre documentos e possibilidades.</p>
           </div>
         </div>
       </section>
@@ -192,8 +191,7 @@ function Index() {
             Descubra qual é o seu direito no INSS.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Sem juridiquês. Aqui vão os cinco caminhos mais comuns — leia com calma e veja qual
-            combina com a sua história.
+             Conheça algumas situações em que nossa equipe pode orientar você.
           </p>
         </div>
 
@@ -203,17 +201,16 @@ function Index() {
             return (
               <article
                 key={b.tag}
-                className="group relative flex flex-col rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-terracotta/40 hover:shadow-xl hover:shadow-terracotta/5"
+                 className="group relative flex flex-col rounded-md border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-terracotta/40 hover:shadow-xl hover:shadow-terracotta/5"
               >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-nude/70 text-terracotta transition-transform group-hover:-rotate-3 group-hover:scale-105">
+                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-md bg-nude/70 text-terracotta transition-transform group-hover:-rotate-3 group-hover:scale-105">
                   <Icon size={28} strokeWidth={1.6} />
                 </div>
-                <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                  {b.tag}
-                </div>
-                <h3 className="mt-3 font-display text-xl leading-snug text-foreground">
+                 <div className="text-xs font-semibold uppercase text-muted-foreground">ÁREA {b.tag}</div>
+                 <h3 className="mt-2 font-display text-2xl font-semibold leading-snug text-terracotta">{b.name}</h3>
+                 <h4 className="mt-3 font-display text-lg leading-snug text-foreground">
                   {b.hook}
-                </h3>
+                 </h4>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b.body}</p>
                 <div className="mt-6 h-px w-10 bg-terracotta/60 transition-all group-hover:w-16" />
               </article>
@@ -224,13 +221,7 @@ function Index() {
 
       {/* Escritório + Atendimento Nacional */}
       <section id="escritorio" className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent, oklch(0.87 0.028 55 / 0.35) 40%, transparent)",
-          }}
-        />
+        <div className="absolute inset-0 -z-10 bg-nude/20" />
         <div className="mx-auto max-w-6xl px-5 py-20">
           <div className="max-w-2xl">
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">
@@ -241,8 +232,7 @@ function Index() {
               atendendo todo o Brasil.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Nosso escritório físico fica no coração do Ceará, mas graças ao atendimento 100%
-              digital, cuidamos do seu caso onde quer que você esteja — do Oiapoque ao Chuí.
+               Nosso escritório fica no Centro de Fortaleza. Também atendemos online em todo o Brasil, para você conversar com a equipe de onde estiver.
             </p>
           </div>
 
@@ -264,7 +254,7 @@ function Index() {
           </div>
 
           {/* Mapa Brasil */}
-          <div className="mt-12 grid items-center gap-10 rounded-3xl border border-border bg-card p-8 md:grid-cols-[1fr_1fr] md:p-12">
+          <div className="mt-12 grid items-center gap-10 border-t border-border py-10 md:grid-cols-[1fr_1fr] md:py-12">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-terracotta/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-terracotta">
                 <MapPin size={14} /> Atendimento Nacional
@@ -357,7 +347,7 @@ function Index() {
           </div>
 
           <div className="mt-10 flex justify-center">
-            <WhatsappButton size="lg">Agendar minha consulta online</WhatsappButton>
+           <WhatsappButton size="lg">Fale com o escritório</WhatsappButton>
           </div>
         </div>
       </section>
@@ -377,7 +367,7 @@ function Index() {
                 cabem no seu dia a dia.
               </p>
               <div className="mt-8">
-                <WhatsappButton>Conversar comigo agora</WhatsappButton>
+                 <WhatsappButton>Fale com nossa equipe</WhatsappButton>
               </div>
             </div>
             <ul className="grid gap-4 sm:grid-cols-2">
@@ -386,7 +376,7 @@ function Index() {
                 return (
                   <li
                     key={r.title}
-                    className="rounded-2xl border border-border/70 bg-background p-6"
+                     className="rounded-md border border-border/70 bg-background p-6"
                   >
                     <div className="flex items-center gap-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-terracotta/10 text-terracotta">
@@ -406,49 +396,50 @@ function Index() {
 
       {/* CTA Final */}
       <section className="mx-auto max-w-6xl px-5 py-24">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 md:p-16">
-          <div
-            className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full"
-            style={{ background: "radial-gradient(circle, oklch(0.58 0.12 48 / 0.18), transparent 70%)" }}
-          />
+         <div className="relative overflow-hidden border-t border-border py-10 md:py-16">
           <div className="relative max-w-2xl">
             <h2 className="font-display text-3xl leading-tight md:text-5xl">
               Não deixe seu direito ficar pra trás.
             </h2>
             <p className="mt-5 text-lg text-muted-foreground">
-              Cada dia que passa pode significar dinheiro perdido ou um benefício que você ainda
-              não sabe que tem direito. Fale agora comigo e descubra o melhor caminho para o seu
-              caso.
+               Tem dúvidas sobre um benefício do INSS? Nossa equipe pode ouvir sua situação e orientar os próximos passos.
             </p>
             <div className="mt-8">
-              <WhatsappButton size="lg">Falar no WhatsApp agora</WhatsappButton>
+               <WhatsappButton size="lg">Fale com o escritório</WhatsappButton>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center">
-          <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-nude">
-              <img src={logoAsset.url} alt="" className="h-full w-full object-cover" />
-            </div>
-            <span>Dra. Carolina Freitas — Advocacia Previdenciária</span>
-          </div>
-          <div>WhatsApp: (85) 8761-0651</div>
-        </div>
-      </footer>
+       <footer className="border-t border-border bg-foreground text-background">
+         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 text-sm md:grid-cols-3">
+           <div>
+             <div className="flex items-center gap-3"><img src={logoAsset.url} alt="" className="h-10 w-10 rounded-full object-cover" /><strong className="font-display text-lg">Carolina Freitas Advocacia Previdenciária</strong></div>
+             <p className="mt-4 opacity-80">Carolina Freitas Moreira · OAB/CE 23.787</p>
+             <p className="mt-1 opacity-80">CNPJ: 52.502.793/0001-40</p>
+             <div className="mt-5 flex gap-3">
+               <a href="https://www.instagram.com/carolinafreitasadv/" target="_blank" rel="noopener noreferrer" aria-label="Instagram do escritório" title="Instagram" className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-background/40 hover:bg-background/15"><Instagram size={20} /></a>
+               <a href="https://www.tiktok.com/@adv.carolinafreitas" target="_blank" rel="noopener noreferrer" aria-label="TikTok do escritório" title="TikTok" className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-background/40 hover:bg-background/15"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16.7 2h-3.2v13.2a3.1 3.1 0 1 1-2.7-3.1V8.9a6.3 6.3 0 1 0 5.9 6.3V8.5a8.3 8.3 0 0 0 4.8 1.5V6.8A5.1 5.1 0 0 1 16.7 2Z" /></svg></a>
+             </div>
+           </div>
+           <div>
+             <h2 className="font-display text-xl">Visite o escritório</h2>
+             <p className="mt-4 leading-relaxed opacity-80">Edifício Palácio Progresso<br />Rua Pedro Borges, nº 33, sala 520, 5º andar<br />Centro, Fortaleza – CE<br />Próximo ao calçadão da C. Rolim</p>
+             <a className="mt-3 inline-flex items-center gap-2 underline underline-offset-4" href="https://www.google.com/maps/search/?api=1&query=Edif%C3%ADcio+Pal%C3%A1cio+Progresso+Rua+Pedro+Borges+33+Fortaleza+CE" target="_blank" rel="noopener noreferrer"><MapPin size={16} /> Ver localização <ExternalLink size={13} /></a>
+           </div>
+           <div>
+             <h2 className="font-display text-xl">Atendimento</h2>
+             <p className="mt-4 flex items-start gap-2 opacity-80"><Clock3 size={17} className="mt-0.5 shrink-0" /> Segunda a sexta, das 8h às 17h</p>
+             <a href="mailto:carolinafreitasadvocacia@gmail.com" className="mt-4 flex items-start gap-2 break-all opacity-80 hover:opacity-100"><Mail size={17} className="mt-0.5 shrink-0" /> carolinafreitasadvocacia@gmail.com</a>
+             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center gap-2 opacity-80 hover:opacity-100"><WhatsAppIcon /> (85) 8761-0651</a>
+           </div>
+         </div>
+       </footer>
 
       {/* Floating WhatsApp */}
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Falar no WhatsApp"
-        className="btn-whatsapp fixed bottom-6 right-6 z-50 !h-14 !w-14 !p-0"
-      >
-        <WhatsAppIcon className="h-7 w-7" />
-      </a>
+       <Button asChild size="icon" className="btn-whatsapp fixed bottom-6 right-6 z-50 !h-14 !w-14 !p-0" title="Fale com o escritório no WhatsApp">
+         <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Fale com o escritório no WhatsApp"><WhatsAppIcon className="!h-7 !w-7" /></a>
+       </Button>
     </div>
   );
 }
