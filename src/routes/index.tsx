@@ -146,51 +146,22 @@ function Index() {
               <div className="text-xs text-muted-foreground">Advocacia Previdenciária</div>
             </div>
           </div>
-          <WhatsappButton size="sm">WhatsApp</WhatsappButton>
+          <WhatsappButton size="sm">Fale com o escritório</WhatsappButton>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "radial-gradient(ellipse at 80% 20%, oklch(0.87 0.028 55 / 0.55), transparent 55%), radial-gradient(ellipse at 10% 90%, oklch(0.58 0.12 48 / 0.14), transparent 60%)",
-          }}
-        />
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-[1.1fr_0.9fr] md:py-24">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-terracotta/30 bg-terracotta/5 px-3 py-1 text-xs font-medium uppercase tracking-wider text-terracotta">
-              <span className="h-1.5 w-1.5 rounded-full bg-terracotta" />
-              OAB · Advocacia Previdenciária
-            </span>
-            <h1 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-foreground md:text-6xl">
-              Quando o INSS te diz <span className="italic text-terracotta">NÃO</span>,{" "}
-              <br className="hidden md:block" />
-              eu te ajudo.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Sou a <strong className="text-foreground">Dra. Carolina Freitas</strong>, advogada
-              previdenciária. Vou te ouvir, entender sua história e lutar pelo benefício que é seu
-              por direito.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <WhatsappButton size="lg">Falar no WhatsApp</WhatsappButton>
-              <a href="#beneficios" className="text-sm font-medium text-foreground/70 underline-offset-4 hover:underline">
-                Ver benefícios →
-              </a>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-nude/70" />
-            <div className="overflow-hidden rounded-[1.75rem] border border-nude shadow-2xl shadow-terracotta/10">
-              <img
-                src={photoAsset.url}
-                alt="Dra. Carolina Freitas, advogada previdenciária"
-                className="h-full w-full object-cover"
-              />
+      <section className="relative flex min-h-[560px] items-end overflow-hidden md:min-h-[620px] md:items-center">
+        <img src={photoAsset.url} alt="Dra. Carolina Freitas, advogada previdenciária" className="absolute inset-0 h-full w-full object-cover object-[68%_center] md:object-center" />
+        <div className="hero-veil absolute inset-0" />
+        <div className="relative mx-auto w-full max-w-6xl px-5 pb-12 pt-32 md:py-24">
+          <div className="max-w-2xl text-hero-foreground">
+            <p className="text-xs font-bold uppercase tracking-widest text-hero-subtle">Carolina Freitas Advocacia Previdenciária · OAB/CE 23.787</p>
+            <h1 className="mt-5 font-display text-4xl leading-tight md:text-6xl">Seu benefício é nossa prioridade!</h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-hero-subtle">Advocacia previdenciária e benefícios do INSS. Atendimento presencial em Fortaleza, Ceará, e online em todo o Brasil.</p>
+            <div className="mt-8 flex flex-wrap items-center gap-5">
+              <WhatsappButton size="lg">Fale com o escritório</WhatsappButton>
+              <a href="#beneficios" className="text-sm font-semibold text-hero-foreground underline underline-offset-4">Conheça as áreas de atuação</a>
             </div>
           </div>
         </div>
@@ -206,8 +177,7 @@ function Index() {
             Descubra qual é o seu direito no INSS.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Sem juridiquês. Aqui vão os cinco caminhos mais comuns — leia com calma e veja qual
-            combina com a sua história.
+             Conheça algumas situações em que nossa equipe pode orientar você.
           </p>
         </div>
 
@@ -217,17 +187,16 @@ function Index() {
             return (
               <article
                 key={b.tag}
-                className="group relative flex flex-col rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-terracotta/40 hover:shadow-xl hover:shadow-terracotta/5"
+                 className="group relative flex flex-col rounded-md border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-terracotta/40 hover:shadow-xl hover:shadow-terracotta/5"
               >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-nude/70 text-terracotta transition-transform group-hover:-rotate-3 group-hover:scale-105">
+                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-md bg-nude/70 text-terracotta transition-transform group-hover:-rotate-3 group-hover:scale-105">
                   <Icon size={28} strokeWidth={1.6} />
                 </div>
-                <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                  {b.tag}
-                </div>
-                <h3 className="mt-3 font-display text-xl leading-snug text-foreground">
+                 <div className="text-xs font-semibold uppercase text-muted-foreground">ÁREA {b.tag}</div>
+                 <h3 className="mt-2 font-display text-2xl font-semibold leading-snug text-terracotta">{b.name}</h3>
+                 <h4 className="mt-3 font-display text-lg leading-snug text-foreground">
                   {b.hook}
-                </h3>
+                 </h4>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b.body}</p>
                 <div className="mt-6 h-px w-10 bg-terracotta/60 transition-all group-hover:w-16" />
               </article>
