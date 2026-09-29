@@ -167,6 +167,20 @@ function Index() {
         </div>
       </section>
 
+      <section className="border-y border-border bg-card">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[0.75fr_1.25fr] md:gap-20 md:py-20">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-terracotta">À frente do escritório</p>
+            <h2 className="mt-3 font-display text-3xl md:text-4xl">Dra. Carolina Freitas Moreira</h2>
+            <p className="mt-3 text-sm font-semibold text-terracotta">Advogada · OAB/CE 23.787</p>
+          </div>
+          <div className="self-center space-y-4 text-base leading-relaxed text-muted-foreground">
+            <p>Carolina Freitas Moreira atua na advocacia previdenciária, orientando pessoas em questões relacionadas aos benefícios do INSS. À frente do escritório em Fortaleza, oferece atendimento presencial e, com sua equipe, também atende online em todo o Brasil.</p>
+            <p>As áreas de atuação incluem auxílio-acidente, BPC/LOAS, benefícios por incapacidade, aposentadorias e planejamento previdenciário. Cada caso é analisado individualmente, com orientação clara sobre documentos e possibilidades.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Benefícios */}
       <section id="beneficios" className="mx-auto max-w-6xl px-5 py-20">
         <div className="max-w-2xl">
@@ -207,13 +221,7 @@ function Index() {
 
       {/* Escritório + Atendimento Nacional */}
       <section id="escritorio" className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent, oklch(0.87 0.028 55 / 0.35) 40%, transparent)",
-          }}
-        />
+        <div className="absolute inset-0 -z-10 bg-nude/20" />
         <div className="mx-auto max-w-6xl px-5 py-20">
           <div className="max-w-2xl">
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">
@@ -224,8 +232,7 @@ function Index() {
               atendendo todo o Brasil.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Nosso escritório físico fica no coração do Ceará, mas graças ao atendimento 100%
-              digital, cuidamos do seu caso onde quer que você esteja — do Oiapoque ao Chuí.
+               Nosso escritório fica no Centro de Fortaleza. Também atendemos online em todo o Brasil, para você conversar com a equipe de onde estiver.
             </p>
           </div>
 
@@ -247,7 +254,7 @@ function Index() {
           </div>
 
           {/* Mapa Brasil */}
-          <div className="mt-12 grid items-center gap-10 rounded-3xl border border-border bg-card p-8 md:grid-cols-[1fr_1fr] md:p-12">
+          <div className="mt-12 grid items-center gap-10 border-t border-border py-10 md:grid-cols-[1fr_1fr] md:py-12">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-terracotta/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-terracotta">
                 <MapPin size={14} /> Atendimento Nacional
@@ -340,7 +347,7 @@ function Index() {
           </div>
 
           <div className="mt-10 flex justify-center">
-            <WhatsappButton size="lg">Agendar minha consulta online</WhatsappButton>
+           <WhatsappButton size="lg">Fale com o escritório</WhatsappButton>
           </div>
         </div>
       </section>
@@ -360,7 +367,7 @@ function Index() {
                 cabem no seu dia a dia.
               </p>
               <div className="mt-8">
-                <WhatsappButton>Conversar comigo agora</WhatsappButton>
+                 <WhatsappButton>Fale com nossa equipe</WhatsappButton>
               </div>
             </div>
             <ul className="grid gap-4 sm:grid-cols-2">
@@ -369,7 +376,7 @@ function Index() {
                 return (
                   <li
                     key={r.title}
-                    className="rounded-2xl border border-border/70 bg-background p-6"
+                     className="rounded-md border border-border/70 bg-background p-6"
                   >
                     <div className="flex items-center gap-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-terracotta/10 text-terracotta">
@@ -389,49 +396,50 @@ function Index() {
 
       {/* CTA Final */}
       <section className="mx-auto max-w-6xl px-5 py-24">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 md:p-16">
-          <div
-            className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full"
-            style={{ background: "radial-gradient(circle, oklch(0.58 0.12 48 / 0.18), transparent 70%)" }}
-          />
+         <div className="relative overflow-hidden border-t border-border py-10 md:py-16">
           <div className="relative max-w-2xl">
             <h2 className="font-display text-3xl leading-tight md:text-5xl">
               Não deixe seu direito ficar pra trás.
             </h2>
             <p className="mt-5 text-lg text-muted-foreground">
-              Cada dia que passa pode significar dinheiro perdido ou um benefício que você ainda
-              não sabe que tem direito. Fale agora comigo e descubra o melhor caminho para o seu
-              caso.
+               Tem dúvidas sobre um benefício do INSS? Nossa equipe pode ouvir sua situação e orientar os próximos passos.
             </p>
             <div className="mt-8">
-              <WhatsappButton size="lg">Falar no WhatsApp agora</WhatsappButton>
+               <WhatsappButton size="lg">Fale com o escritório</WhatsappButton>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center">
-          <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-nude">
-              <img src={logoAsset.url} alt="" className="h-full w-full object-cover" />
-            </div>
-            <span>Dra. Carolina Freitas — Advocacia Previdenciária</span>
-          </div>
-          <div>WhatsApp: (85) 8761-0651</div>
-        </div>
-      </footer>
+       <footer className="border-t border-border bg-foreground text-background">
+         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 text-sm md:grid-cols-3">
+           <div>
+             <div className="flex items-center gap-3"><img src={logoAsset.url} alt="" className="h-10 w-10 rounded-full object-cover" /><strong className="font-display text-lg">Carolina Freitas Advocacia Previdenciária</strong></div>
+             <p className="mt-4 opacity-80">Carolina Freitas Moreira · OAB/CE 23.787</p>
+             <p className="mt-1 opacity-80">CNPJ: 52.502.793/0001-40</p>
+             <div className="mt-5 flex gap-3">
+               <a href="https://www.instagram.com/carolinafreitasadv/" target="_blank" rel="noopener noreferrer" aria-label="Instagram do escritório" title="Instagram" className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-background/40 hover:bg-background/15"><Instagram size={20} /></a>
+               <a href="https://www.tiktok.com/@adv.carolinafreitas" target="_blank" rel="noopener noreferrer" aria-label="TikTok do escritório" title="TikTok" className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-background/40 hover:bg-background/15"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16.7 2h-3.2v13.2a3.1 3.1 0 1 1-2.7-3.1V8.9a6.3 6.3 0 1 0 5.9 6.3V8.5a8.3 8.3 0 0 0 4.8 1.5V6.8A5.1 5.1 0 0 1 16.7 2Z" /></svg></a>
+             </div>
+           </div>
+           <div>
+             <h2 className="font-display text-xl">Visite o escritório</h2>
+             <p className="mt-4 leading-relaxed opacity-80">Edifício Palácio Progresso<br />Rua Pedro Borges, nº 33, sala 520, 5º andar<br />Centro, Fortaleza – CE<br />Próximo ao calçadão da C. Rolim</p>
+             <a className="mt-3 inline-flex items-center gap-2 underline underline-offset-4" href="https://www.google.com/maps/search/?api=1&query=Edif%C3%ADcio+Pal%C3%A1cio+Progresso+Rua+Pedro+Borges+33+Fortaleza+CE" target="_blank" rel="noopener noreferrer"><MapPin size={16} /> Ver localização <ExternalLink size={13} /></a>
+           </div>
+           <div>
+             <h2 className="font-display text-xl">Atendimento</h2>
+             <p className="mt-4 flex items-start gap-2 opacity-80"><Clock3 size={17} className="mt-0.5 shrink-0" /> Segunda a sexta, das 8h às 17h</p>
+             <a href="mailto:carolinafreitasadvocacia@gmail.com" className="mt-4 flex items-start gap-2 break-all opacity-80 hover:opacity-100"><Mail size={17} className="mt-0.5 shrink-0" /> carolinafreitasadvocacia@gmail.com</a>
+             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center gap-2 opacity-80 hover:opacity-100"><WhatsAppIcon /> (85) 8761-0651</a>
+           </div>
+         </div>
+       </footer>
 
       {/* Floating WhatsApp */}
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Falar no WhatsApp"
-        className="btn-whatsapp fixed bottom-6 right-6 z-50 !h-14 !w-14 !p-0"
-      >
-        <WhatsAppIcon className="h-7 w-7" />
-      </a>
+       <Button asChild size="icon" className="btn-whatsapp fixed bottom-6 right-6 z-50 !h-14 !w-14 !p-0" title="Fale com o escritório no WhatsApp">
+         <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Fale com o escritório no WhatsApp"><WhatsAppIcon className="!h-7 !w-7" /></a>
+       </Button>
     </div>
   );
 }
