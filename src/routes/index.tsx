@@ -158,6 +158,7 @@ function Index() {
             alt="Dra. Carolina Freitas, advogada previdenciária"
             className="h-full w-full object-cover object-[50%_18%]"
           />
+          <div className="hero-veil pointer-events-none absolute inset-0" aria-hidden="true" />
         </div>
         <div className="mx-auto w-full max-w-3xl px-5 py-14 text-center md:py-20">
           <p className="text-xs font-bold uppercase tracking-widest text-terracotta">Carolina Freitas Advocacia Previdenciária · OAB/CE 23.787</p>
