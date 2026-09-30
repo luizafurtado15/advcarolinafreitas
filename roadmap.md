@@ -4,4 +4,4 @@
 - [ ] Connect provided Instagram and TikTok profile links to footer icons.
 - [ ] Add verifiable experience details when provided.
 - [ ] Guide purchase and connection of carolinafreitas.adv.br; purchase requires owner payment and domain registration.
-- [ ] Verify desktop and mobile presentation.
+- [ ] Correct the cropped client photo and hero text contrast on desktop and mobile; verify both viewports.
