@@ -151,24 +151,21 @@ function Index() {
       </header>
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-foreground md:min-h-[640px]">
-        <div className="absolute inset-0">
+      <section className="bg-background">
+        <div className="relative h-[400px] w-full overflow-hidden bg-nude/30 sm:h-[480px] md:h-[560px]">
           <img
             src={photoAsset.url}
             alt="Dra. Carolina Freitas, advogada previdenciária"
-            className="h-full w-full object-cover object-[50%_15%]"
+            className="h-full w-full object-cover object-[50%_18%]"
           />
-          <div className="hero-veil absolute inset-0" />
         </div>
-        <div className="relative mx-auto flex min-h-[560px] w-full max-w-6xl items-center px-5 py-16 md:min-h-[640px] md:py-20">
-          <div className="max-w-xl text-hero-foreground">
-            <p className="text-xs font-bold uppercase tracking-widest text-hero-subtle">Carolina Freitas Advocacia Previdenciária · OAB/CE 23.787</p>
-            <h1 className="mt-5 font-display text-4xl leading-tight md:text-6xl">Seu benefício é nossa prioridade!</h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-hero-subtle">Advocacia previdenciária e benefícios do INSS. Atendimento presencial em Fortaleza, Ceará, e online em todo o Brasil.</p>
-            <div className="mt-8 flex flex-wrap items-center gap-5">
-              <WhatsappButton size="lg">Fale com o escritório</WhatsappButton>
-              <a href="#beneficios" className="text-sm font-semibold text-hero-foreground underline underline-offset-4">Conheça as áreas de atuação</a>
-            </div>
+        <div className="mx-auto w-full max-w-3xl px-5 py-14 text-center md:py-20">
+          <p className="text-xs font-bold uppercase tracking-widest text-terracotta">Carolina Freitas Advocacia Previdenciária · OAB/CE 23.787</p>
+          <h1 className="mt-5 font-display text-4xl leading-tight text-foreground md:text-6xl">Seu benefício é nossa prioridade!</h1>
+          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">Advocacia previdenciária e benefícios do INSS. Atendimento presencial em Fortaleza, Ceará, e online em todo o Brasil.</p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
+            <WhatsappButton size="lg">Fale com o escritório</WhatsappButton>
+            <a href="#beneficios" className="text-sm font-semibold text-foreground underline underline-offset-4">Conheça as áreas de atuação</a>
           </div>
         </div>
       </section>
