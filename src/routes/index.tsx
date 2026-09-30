@@ -156,7 +156,7 @@ function Index() {
           <img
             src={photoAsset.url}
             alt="Dra. Carolina Freitas, advogada previdenciária"
-            className="h-full w-full object-cover object-center"
+            className="h-full w-full object-cover object-[50%_15%]"
           />
           <div className="hero-veil absolute inset-0" />
         </div>
