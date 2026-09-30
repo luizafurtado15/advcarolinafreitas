@@ -151,12 +151,17 @@ function Index() {
       </header>
 
       {/* Hero */}
-      <section className="relative flex flex-col bg-foreground md:min-h-[610px] md:justify-center">
-        <div className="h-[260px] w-full bg-nude md:absolute md:inset-y-0 md:right-0 md:h-full md:w-[46%]">
-          <img src={photoAsset.url} alt="Dra. Carolina Freitas, advogada previdenciária" className="h-full w-full object-contain object-bottom" />
+      <section className="relative overflow-hidden bg-foreground md:min-h-[640px]">
+        <div className="absolute inset-0">
+          <img
+            src={photoAsset.url}
+            alt="Dra. Carolina Freitas, advogada previdenciária"
+            className="h-full w-full object-cover object-center"
+          />
+          <div className="hero-veil absolute inset-0" />
         </div>
-        <div className="relative mx-auto w-full max-w-6xl px-5 py-9 md:py-20">
-          <div className="max-w-xl text-hero-foreground md:w-[51%]">
+        <div className="relative mx-auto flex min-h-[560px] w-full max-w-6xl items-center px-5 py-16 md:min-h-[640px] md:py-20">
+          <div className="max-w-xl text-hero-foreground">
             <p className="text-xs font-bold uppercase tracking-widest text-hero-subtle">Carolina Freitas Advocacia Previdenciária · OAB/CE 23.787</p>
             <h1 className="mt-5 font-display text-4xl leading-tight md:text-6xl">Seu benefício é nossa prioridade!</h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-hero-subtle">Advocacia previdenciária e benefícios do INSS. Atendimento presencial em Fortaleza, Ceará, e online em todo o Brasil.</p>
