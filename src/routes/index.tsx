@@ -152,7 +152,7 @@ function Index() {
 
       {/* Hero */}
       <section className="relative flex min-h-[560px] items-end overflow-hidden md:min-h-[620px] md:items-center">
-        <img src={photoAsset.url} alt="Dra. Carolina Freitas, advogada previdenciária" className="absolute inset-0 h-full w-full object-cover object-[68%_center] md:object-center" />
+        <img src={photoAsset.url} alt="Dra. Carolina Freitas, advogada previdenciária" className="absolute inset-0 h-full w-full object-cover object-[68%_top] md:object-top" />
         <div className="hero-veil absolute inset-0" />
         <div className="relative mx-auto w-full max-w-6xl px-5 pb-12 pt-32 md:py-24">
           <div className="max-w-2xl text-hero-foreground">
