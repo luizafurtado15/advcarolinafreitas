@@ -152,7 +152,10 @@ function Index() {
 
       {/* Hero */}
       <section>
-        <img src={photoAsset.url} alt="Dra. Carolina Freitas, advogada previdenciária" className="block h-[min(125vw,620px)] w-full object-cover object-top md:h-[680px]" />
+        <div className="relative">
+          <img src={photoAsset.url} alt="Dra. Carolina Freitas, advogada previdenciária" className="block h-[min(125vw,620px)] w-full object-cover object-top md:h-[680px]" />
+          <div className="hero-veil pointer-events-none absolute inset-0" />
+        </div>
         <div className="mx-auto w-full max-w-6xl px-5 py-12 md:py-20">
           <div className="max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-widest text-terracotta">Carolina Freitas Advocacia Previdenciária · OAB/CE 23.787</p>
