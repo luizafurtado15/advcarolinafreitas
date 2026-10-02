@@ -52,8 +52,7 @@
   --terracotta-dark: oklch(0.48 0.11 46);
   --whatsapp: oklch(0.58 0.12 48);
   --whatsapp-dark: oklch(0.48 0.11 46);
-  --hero-veil: linear-gradient(90deg, oklch(0.19 0.015 50 / 0.9) 0%, oklch(0.19 0.015 50 / 0.74) 42%, oklch(0.19 0.015 50 / 0.08) 100%);
-  --hero-veil-mobile: linear-gradient(0deg, oklch(0.19 0.015 50 / 0.92) 0%, oklch(0.19 0.015 50 / 0.72) 58%, oklch(0.19 0.015 50 / 0.16) 100%);
+  --hero-veil: linear-gradient(0deg, oklch(0.19 0.015 50 / 0.22) 0%, transparent 35%);
   --hero-foreground: oklch(0.99 0.005 60);
   --hero-subtle: oklch(0.91 0.015 60);
 
@@ -117,6 +116,3 @@
 }
 
 .hero-veil { background: var(--hero-veil); }
-@media (max-width: 767px) {
-  .hero-veil { background: var(--hero-veil-mobile); }
-}
