@@ -5,4 +5,5 @@
 - [x] Connect provided Instagram and TikTok profile links to footer icons.
 - [ ] Add verifiable experience details when provided.
 - [ ] Guide purchase and connection of carolinafreitas.adv.br; purchase requires owner payment and domain registration.
+- [x] HTTPS/SSL on the published site: GitHub Pages issues and renews the certificate free; owner only ticks Enforce HTTPS once DNS points there.
 - [x] Verify desktop and mobile presentation.
